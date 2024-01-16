@@ -74,7 +74,7 @@ function App() {
             onChange={handleAnswerChange}
             placeholder="Type your answer here..."
           />
-          <button onClick={handleAnswerSubmit}>Submit</button>
+          <button className='loveformbtn' onClick={handleAnswerSubmit}>Submit</button>
         </div>
       )}
       <div className="submitted-answers">
