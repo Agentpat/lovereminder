@@ -66,7 +66,7 @@
 }
 
 .animated-letter {
-  animation: drop 0.5s ease-out, colorChange 0.5s linear;
+  animation: drop 3s ease-out, colorChange 3s linear;
   animation-fill-mode: both;
   display: inline-block;
 }
@@ -75,5 +75,5 @@
   font-size: 36px;
   color: red;
   margin-left: 5px;
-  animation: heartDrop 0.8s ease-out;
+  animation: heartDrop 3s ease-out;
 }
