@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import './App.css';
 
 function App() {
@@ -12,26 +12,22 @@ function App() {
   const dropDelay = 100; // Delay between drops in milliseconds
 
   const animateDrops = (text) => {
-    let animatedText = '';
-    for (let i = 0; i < text.length; i++) {
-      animatedText += `<span style="animation-delay:${i * dropDelay}ms">${text[i]}</span>`;
-    }
-    return animatedText;
+    return text.split('').map((char, index) => (
+      <span
+        key={index}
+        style={{
+          animation: `drop ${0.5}s ease-out, colorChange ${
+            0.5 + index * 0.1
+          }s linear`,
+          animationDelay: `${index * dropDelay}ms`,
+          color: dropColors[index % dropColors.length],
+          fontSize: '2em', // Adjust font size as needed
+        }}
+      >
+        {char}
+      </span>
+    ));
   };
-
-  useEffect(() => {
-    const textElement = document.getElementById('messageText');
-    const heartElement = document.getElementById('heartIcon');
-
-    if (textElement && heartElement) {
-      textElement.innerHTML = animateDrops(message);
-
-      // Adding heart drop animation
-      setTimeout(() => {
-        heartElement.style.animation = 'heartDrop 0.8s ease-out';
-      }, message.length * dropDelay);
-    }
-  }, [message]);
 
   const styles = {
     container: {
@@ -57,7 +53,6 @@ function App() {
       marginTop: '20px',
       color: '#555',
       display: 'inline-block',
-      animation: 'drop 0.5s ease-out', // Animation for letter drop
     },
     heartIcon: {
       fontSize: '36px',
@@ -73,7 +68,9 @@ function App() {
       <button style={styles.button} onClick={handleButtonClick}>
         Click me
       </button>
-      <p id="messageText" style={styles.message}></p>
+      <p id="messageText" style={styles.message}>
+        {animateDrops(message)}
+      </p>
       <span id="heartIcon" role="img" aria-label="heart" style={styles.heartIcon}>
         ❤️
       </span>

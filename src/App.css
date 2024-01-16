@@ -9,6 +9,24 @@
   }
 }
 
+@keyframes colorChange {
+  0% {
+    color: #ff5733;
+  }
+  25% {
+    color: #33ff57;
+  }
+  50% {
+    color: #5733ff;
+  }
+  75% {
+    color: #ff5733;
+  }
+  100% {
+    color: #33ff57;
+  }
+}
+
 @keyframes heartDrop {
   0% {
     opacity: 0;
