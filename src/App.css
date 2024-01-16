@@ -77,6 +77,42 @@ body {
   border-radius: 5px;
 }
 
+.love-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff5733; /* Red color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.love-form button:hover {
+  background-color: #e74c3c; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.submitted-answers {
+  margin-top: 20px;
+}
+
+.submitted-answers p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.submitted-answers ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.submitted-answers li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
 .heartIcon {
   font-size: 72px;
   color: red;
