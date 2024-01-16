@@ -5,12 +5,10 @@ function App() {
   const [message, setMessage] = useState('');
   const [loveStatus, setLoveStatus] = useState(null);
   const [answer, setAnswer] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
   const handleButtonClick = () => {
     setMessage('Remember, Laide loves you so much');
     setLoveStatus(null);
-    setSubmitted(false);
     setAnswer('');
   };
 
@@ -20,13 +18,6 @@ function App() {
 
   const handleAnswerChange = (event) => {
     setAnswer(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    // Simulate sending the answer to the specified email
-    const email = 'olaideakosile@gmail.com';
-    console.log(`Answer: ${answer} submitted to ${email}`);
-    setSubmitted(true);
   };
 
   const animateDrops = (text) => {
@@ -44,9 +35,9 @@ function App() {
         CLICK ME
       </button>
       <p className="message">{animateDrops(message)}</p>
-      {loveStatus === null && !submitted && (
+      {loveStatus === null && (
         <div className="question">
-          <p>Do you love him too?</p>
+          <p>Do you love Laide too?</p>
           <label>
             <input
               type="radio"
@@ -67,25 +58,19 @@ function App() {
           </label>
         </div>
       )}
-      {loveStatus === 'yes' && !submitted && (
+      {loveStatus === 'yes' && (
         <div className="love-form">
-          <p>Tell him how much you love him:</p>
+          <p>Why do you love Laide?</p>
           <textarea
             value={answer}
             onChange={handleAnswerChange}
-            placeholder="Type your message here..."
+            placeholder="Type your answer here..."
           />
-          <button onClick={handleSubmit}>Submit</button>
         </div>
       )}
-      {submitted && (
-        <p className="submission-message">
-          Your answer has been submitted. ❤️
-        </p>
-      )}
-      <span className="heartIcon" role="img" aria-label="heart">
+      <div className="heartIcon" role="img" aria-label="heart">
         ❤️
-      </span>
+      </div>
     </div>
   );
 }
