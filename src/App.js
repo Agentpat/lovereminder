@@ -20,7 +20,7 @@ function App() {
     <div className="container">
       <h1 className="heading">Love Reminder</h1>
       <button className="button" onClick={handleButtonClick}>
-        Click me
+        CLICK ME
       </button>
       <p className="message">{animateDrops(message)}</p>
       <span className="heartIcon" role="img" aria-label="heart">
