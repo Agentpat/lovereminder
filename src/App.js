@@ -5,6 +5,7 @@ function App() {
   const [message, setMessage] = useState('');
   const [loveStatus, setLoveStatus] = useState(null);
   const [answer, setAnswer] = useState('');
+  const [submittedAnswers, setSubmittedAnswers] = useState([]);
 
   const handleButtonClick = () => {
     setMessage('Remember, Laide loves you so much');
@@ -18,6 +19,13 @@ function App() {
 
   const handleAnswerChange = (event) => {
     setAnswer(event.target.value);
+  };
+
+  const handleAnswerSubmit = () => {
+    if (answer) {
+      setSubmittedAnswers((prevAnswers) => [...prevAnswers, answer]);
+      setAnswer('');
+    }
   };
 
   const animateDrops = (text) => {
@@ -66,8 +74,17 @@ function App() {
             onChange={handleAnswerChange}
             placeholder="Type your answer here..."
           />
+          <button onClick={handleAnswerSubmit}>Submit</button>
         </div>
       )}
+      <div className="submitted-answers">
+        <p>Submitted Answers:</p>
+        <ul>
+          {submittedAnswers.map((submittedAnswer, index) => (
+            <li key={index}>{submittedAnswer}</li>
+          ))}
+        </ul>
+      </div>
       <div className="heartIcon" role="img" aria-label="heart">
         ❤️
       </div>
